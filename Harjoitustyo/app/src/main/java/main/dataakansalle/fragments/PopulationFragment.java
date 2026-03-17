@@ -27,7 +27,7 @@ public class PopulationFragment extends Fragment {
         RecyclerView recyclerView = view.findViewById(R.id.PopulationList);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         List<Item> items =  new ArrayList<Item>();
-        items.add(new Item("Väestökehitys: ", "Työpaikkaomavaraisuus : ", "Työllisyysaste"));
+        items.add(new Item("Väestökehitys: ", "Työpaikkaomavaraisuus: ", "Työllisyysaste"));
         recyclerView.setAdapter(new Adapter(getContext(),items));
         return view;
     }

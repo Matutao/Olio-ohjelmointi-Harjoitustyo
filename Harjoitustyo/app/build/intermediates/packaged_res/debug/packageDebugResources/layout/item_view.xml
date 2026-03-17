@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/PopulationDevelopment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        tools:text="Väestökehitys: " />
+
+    <TextView
+        android:id="@+id/JobSelfSufficiency"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="0dp"
+        android:textSize="20sp"
+        tools:text="Työpaikkaomavaraisuus: " />
+
+    <TextView
+        android:id="@+id/EmploymentRate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        android:textSize="20sp"
+        tools:text="Työllisyysaste: " />
+
+</LinearLayout>

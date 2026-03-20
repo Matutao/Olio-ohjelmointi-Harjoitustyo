@@ -1,55 +1,62 @@
-package main;
+package main.dataakansalle;
 
 import java.io.IOException;
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class DataRetriever {
-    
-    public JSONObject fetchWeatherData(String MunicipalityName){
 
-        HttpClient Client = HttpClient.newHttpClient();
-        String RequestStringBody = "https://api.openweathermap.org/data/2.5/weather?q=%s&appid=";  
-        String RequestString = String.format(RequestStringBody, MunicipalityName); 
-        HttpRequest Request = HttpRequest.newBuilder()
-            .uri(URI.create(RequestString))
-            .header("Accept", "application/json")
-            .header("Authorization", "")
-            .GET()
-            .build(); 
-        try {
-            HttpResponse<String> Response = Client.send(Request, HttpResponse.BodyHandlers.ofString());
-            System.out.println("Status: " + Response.statusCode()); 
-            JSONObject jo = new JSONObject( Response.body());
-            return jo; 
-        } catch (IOException | InterruptedException e) {
+    private final OkHttpClient client = new OkHttpClient();
+    public static final MediaType JSON = MediaType.get("application/json; charset=utf-8");
+
+    public JSONObject fetchWeatherData(String MunicipalityName){
+        String RequestStringBody = "https://api.openweathermap.org/data/2.5/weather?q=%s&appid=";
+        String RequestString = String.format(RequestStringBody, MunicipalityName);
+
+        Request request = new Request.Builder()
+                .url(RequestString)
+                .header("Accept", "application/json")
+                .header("Authorization", "")
+                .get()
+                .build();
+
+        try (Response response = client.newCall(request).execute()) {
+            System.out.println("Status: " + response.code());
+            if (response.body() != null) {
+                return new JSONObject(response.body().string());
+            }
+            return null;
+        } catch (IOException | JSONException e) {
             System.err.println(e);
-            return null; 
+            return null;
         }
     }
 
     public JSONObject fetchTaficomTilastokeskusData(String JSONBody, String URL){
-        
-        HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(URL))
+        RequestBody body = RequestBody.create(JSONBody, JSON);
+        Request request = new Request.Builder()
+                .url(URL)
                 .header("Content-Type", "application/json")
                 .header("Accept", "application/json")
                 .header("Authorization", "")
-                .POST(HttpRequest.BodyPublishers.ofString(JSONBody))
+                .post(body)
                 .build();
-        try {
-            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-            System.out.println("Status: " + response.statusCode());
-            JSONObject jo = new JSONObject(response.body());
-            return jo; 
-        } catch (IOException | InterruptedException e) {
+
+        try (Response response = client.newCall(request).execute()) {
+            System.out.println("Status: " + response.code());
+            if (response.body() != null) {
+                return new JSONObject(response.body().string());
+            }
+            return null;
+        } catch (IOException | JSONException e) {
             System.err.println(e);
-            return null;  
+            return null;
         }
     }
 
@@ -83,8 +90,8 @@ public class DataRetriever {
                         }
                         """;
         String RequestQuery = String.format(JSONBody, MunicipalityID);
-        return fetchTaficomTilastokeskusData(RequestQuery, "https://pxdata.stat.fi/PxWeb/api/v1/fi/StatFin/synt/statfin_synt_pxt_12dy.px"); 
-        
+        return fetchTaficomTilastokeskusData(RequestQuery, "https://pxdata.stat.fi/PxWeb/api/v1/fi/StatFin/synt/statfin_synt_pxt_12dy.px");
+
     }
 
     public JSONObject fetchEmploymentData(String MunicipalityID){
@@ -116,7 +123,7 @@ public class DataRetriever {
                             }
                             """;
         String RequestQuery = String.format(JSONBody, MunicipalityID);
-        return fetchTaficomTilastokeskusData(RequestQuery, "https://pxdata.stat.fi/PxWeb/api/v1/fi/StatFin/tyokay/statfin_tyokay_pxt_115x.px"); 
+        return fetchTaficomTilastokeskusData(RequestQuery, "https://pxdata.stat.fi/PxWeb/api/v1/fi/StatFin/tyokay/statfin_tyokay_pxt_115x.px");
 
     }
 
@@ -140,7 +147,7 @@ public class DataRetriever {
                             }
                             """;
         String RequestQuery = String.format(JSONBody, MunicipalityID);
-        return fetchTaficomTilastokeskusData(RequestQuery, "https://pxdata.stat.fi/PxWeb/api/v1/fi/StatFin/tyokay/statfin_tyokay_pxt_125s.px"); 
+        return fetchTaficomTilastokeskusData(RequestQuery, "https://pxdata.stat.fi/PxWeb/api/v1/fi/StatFin/tyokay/statfin_tyokay_pxt_125s.px");
 
     }
 
@@ -173,7 +180,7 @@ public class DataRetriever {
                             }
                             """;
         String RequestQuery = String.format(JSONBody, MunicipalityID);
-        return fetchTaficomTilastokeskusData(RequestQuery, "https://trafi2.stat.fi/PXWeb/api/v1/fi/TraFi/Ensirekisteroinnit/020_ensirek_tau_102.px"); 
+        return fetchTaficomTilastokeskusData(RequestQuery, "https://trafi2.stat.fi/PXWeb/api/v1/fi/TraFi/Ensirekisteroinnit/020_ensirek_tau_102.px");
 
     }
 }

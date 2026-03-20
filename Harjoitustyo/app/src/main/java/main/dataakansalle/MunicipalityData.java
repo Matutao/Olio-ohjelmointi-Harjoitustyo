@@ -1,4 +1,4 @@
-package main;
+package main.dataakansalle;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -64,7 +64,7 @@ public final class MunicipalityData {
         throw new Exception("Municipality not found: " + MunicipalityName); 
     }
 
-    public void updateAllData(){
+    public void updateAllData() throws Exception{
         setPopulationData(DP.parsePopulationData(DR.fetchPopulationData(MunicipalityID)));
         setPopulationChangeData(DP.parsePopulationChangeData(DR.fetchPopulationData(MunicipalityID)));
         setEmploymentData(DP.parseEmploymentData(DR.fetchEmploymentData(MunicipalityID)));

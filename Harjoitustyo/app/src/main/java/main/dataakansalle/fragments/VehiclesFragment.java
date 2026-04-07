@@ -1,5 +1,6 @@
 package main.dataakansalle.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import main.dataakansalle.MainActivity;
 import main.dataakansalle.R;
 
 /**
@@ -63,4 +65,10 @@ public class VehiclesFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_vehicles, container, false);
     }
+
+    public void switchToMainActivity(View view) {
+        Intent intent = new Intent(getActivity(), MainActivity.class);
+        startActivity(intent);
+    }
+
 }

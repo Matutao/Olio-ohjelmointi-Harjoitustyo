@@ -1,9 +1,9 @@
-#Fri Mar 20 16:26:04 EET 2026
-base.0=C\:\\Users\\mavar\\Koulu\\Tietotekniikka\\Olio-ohjelmointi\\Olio-ohjelmointi-Harjoitustyo\\Harjoitustyo\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
-base.1=C\:\\Users\\mavar\\Koulu\\Tietotekniikka\\Olio-ohjelmointi\\Olio-ohjelmointi-Harjoitustyo\\Harjoitustyo\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
-base.2=C\:\\Users\\mavar\\Koulu\\Tietotekniikka\\Olio-ohjelmointi\\Olio-ohjelmointi-Harjoitustyo\\Harjoitustyo\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\5\\classes.dex
-base.3=C\:\\Users\\mavar\\Koulu\\Tietotekniikka\\Olio-ohjelmointi\\Olio-ohjelmointi-Harjoitustyo\\Harjoitustyo\\app\\build\\intermediates\\global_synthetics_dex\\debug\\mergeDebugGlobalSynthetics\\classes.dex
-base.4=C\:\\Users\\mavar\\Koulu\\Tietotekniikka\\Olio-ohjelmointi\\Olio-ohjelmointi-Harjoitustyo\\Harjoitustyo\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
+#Tue Apr 07 20:08:42 EEST 2026
+base.0=C\:\\Users\\Pinja\\StudioProjects\\Olio-ohjelmointi-Harjoitustyo\\Harjoitustyo\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+base.1=C\:\\Users\\Pinja\\StudioProjects\\Olio-ohjelmointi-Harjoitustyo\\Harjoitustyo\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
+base.2=C\:\\Users\\Pinja\\StudioProjects\\Olio-ohjelmointi-Harjoitustyo\\Harjoitustyo\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\5\\classes.dex
+base.3=C\:\\Users\\Pinja\\StudioProjects\\Olio-ohjelmointi-Harjoitustyo\\Harjoitustyo\\app\\build\\intermediates\\global_synthetics_dex\\debug\\mergeDebugGlobalSynthetics\\classes.dex
+base.4=C\:\\Users\\Pinja\\StudioProjects\\Olio-ohjelmointi-Harjoitustyo\\Harjoitustyo\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes2.dex
 path.0=classes.dex
 path.1=0/classes.dex
 path.2=5/classes.dex

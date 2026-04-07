@@ -1,5 +1,6 @@
 package main.dataakansalle.fragments;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -16,6 +17,8 @@ import java.util.List;
 
 import main.dataakansalle.Item;
 import main.dataakansalle.Adapter;
+import main.dataakansalle.MainActivity;
+import main.dataakansalle.MunicipalityInfoActivity;
 import main.dataakansalle.R;
 
 public class PopulationFragment extends Fragment {
@@ -30,6 +33,11 @@ public class PopulationFragment extends Fragment {
         items.add(new Item("Väestökehitys: ", "Työpaikkaomavaraisuus: ", "Työllisyysaste"));
         recyclerView.setAdapter(new Adapter(getContext(),items));
         return view;
+    }
+
+    public void switchToMainActivity(View view) {
+        Intent intent = new Intent(getActivity(), MainActivity.class);
+        startActivity(intent);
     }
 
 }

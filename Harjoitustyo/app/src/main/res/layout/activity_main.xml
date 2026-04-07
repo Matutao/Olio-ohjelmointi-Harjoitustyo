@@ -50,20 +50,60 @@
         android:id="@+id/textViewList"
         android:layout_width="223dp"
         android:layout_height="47dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="52dp"
         android:text="Viimeksi haetut kunnat"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchMunicipalityButton" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/LastSearched"
-        android:layout_width="223dp"
-        android:layout_height="252dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <Button
+        android:id="@+id/municipality1"
+        android:layout_width="224dp"
+        android:layout_height="40dp"
+        android:backgroundTint="#609FA4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewList" />
+
+    <Button
+        android:id="@+id/municipality2"
+        android:layout_width="224dp"
+        android:layout_height="40dp"
+        android:backgroundTint="#609FA4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/municipality1" />
+
+    <Button
+        android:id="@+id/municipality3"
+        android:layout_width="224dp"
+        android:layout_height="40dp"
+        android:backgroundTint="#609FA4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/municipality2" />
+
+    <Button
+        android:id="@+id/municipality4"
+        android:layout_width="224dp"
+        android:layout_height="40dp"
+        android:backgroundTint="#609FA4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/municipality3" />
+
+    <Button
+        android:id="@+id/municipality5"
+        android:layout_width="224dp"
+        android:layout_height="40dp"
+        android:backgroundTint="#609FA4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/municipality4"
+        app:layout_constraintVertical_bias="0.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 

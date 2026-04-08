@@ -13,7 +13,7 @@
         android:layout_height="64dp"
         android:layout_marginTop="48dp"
         android:ems="10"
-        android:hint="         Hae kuntaa nimellä..."
+        android:hint="Hae kuntaa nimellä..."
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
@@ -32,7 +32,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.527"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ErrorTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/errorTextView" />
 
     <TextView
         android:id="@+id/titleText"
@@ -63,6 +63,7 @@
         android:layout_height="48dp"
         android:backgroundTint="#609FA4"
         android:contentDescription="Kunta1"
+        android:onClick="switchFromLastSearchedToInformation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewList" />
@@ -73,6 +74,7 @@
         android:layout_height="48dp"
         android:backgroundTint="#609FA4"
         android:contentDescription="Kunta2"
+        android:onClick="switchFromLastSearchedToInformation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/municipality1" />
@@ -83,6 +85,7 @@
         android:layout_height="48dp"
         android:backgroundTint="#609FA4"
         android:contentDescription="Kunta3"
+        android:onClick="switchFromLastSearchedToInformation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/municipality2" />
@@ -93,6 +96,7 @@
         android:layout_height="48dp"
         android:backgroundTint="#609FA4"
         android:contentDescription="Kunta4"
+        android:onClick="switchFromLastSearchedToInformation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/municipality3" />
@@ -103,6 +107,7 @@
         android:layout_height="48dp"
         android:backgroundTint="#609FA4"
         android:contentDescription="Kunta5"
+        android:onClick="switchFromLastSearchedToInformation"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
@@ -111,7 +116,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/ErrorTextView"
+        android:id="@+id/errorTextView"
         android:layout_width="206dp"
         android:layout_height="28dp"
         app:layout_constraintEnd_toEndOf="parent"

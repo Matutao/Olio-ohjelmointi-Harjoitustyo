@@ -8,7 +8,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-// Class that checks if the written municipality is actually a municipality
+// A class that checks if the user's input is actually a municipality
 public class MunicipalityChecker {
 
     private Context context;
@@ -22,7 +22,6 @@ public class MunicipalityChecker {
             BufferedReader logReader = new BufferedReader(
                     new InputStreamReader(context.getAssets().open("MunicipalityCodes.csv"))
             );
-
             String line;
             while ((line = logReader.readLine()) != null) {
                 String[] lines = line.split(";");
@@ -38,4 +37,5 @@ public class MunicipalityChecker {
         }
         return "Kuntaa ei löydy";
     }
+
 }

@@ -4,11 +4,11 @@ color white
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 id EmploymentRate
-id ErrorTextView
 id JobSelfSufficiency
 id Municipality
 id PopulationDevelopment
 id PopulationList
+id errorTextView
 id main
 id municipality1
 id municipality2

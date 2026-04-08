@@ -4,12 +4,12 @@
         "source": "C:\\Users\\Pinja\\.gradle\\daemon\\9.3.1\\main.dataakansalle.app-main-38:\\drawable\\ic_launcher_background.xml"
     },
     {
-        "merged": "C:\\Users\\Pinja\\.gradle\\daemon\\9.3.1\\main.dataakansalle.app-debug-36:\\mipmap-xhdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\Pinja\\.gradle\\daemon\\9.3.1\\main.dataakansalle.app-main-38:\\mipmap-xhdpi\\ic_launcher.webp"
-    },
-    {
         "merged": "C:\\Users\\Pinja\\.gradle\\daemon\\9.3.1\\main.dataakansalle.app-debug-36:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\Pinja\\.gradle\\daemon\\9.3.1\\main.dataakansalle.app-main-38:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\Pinja\\.gradle\\daemon\\9.3.1\\main.dataakansalle.app-debug-36:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\Pinja\\.gradle\\daemon\\9.3.1\\main.dataakansalle.app-main-38:\\mipmap-xhdpi\\ic_launcher.webp"
     },
     {
         "merged": "C:\\Users\\Pinja\\.gradle\\daemon\\9.3.1\\main.dataakansalle.app-debug-36:\\mipmap-mdpi_ic_launcher.webp.flat",
@@ -22,10 +22,6 @@
     {
         "merged": "C:\\Users\\Pinja\\.gradle\\daemon\\9.3.1\\main.dataakansalle.app-debug-36:\\layout_fragment_vehicles.xml.flat",
         "source": "C:\\Users\\Pinja\\.gradle\\daemon\\9.3.1\\main.dataakansalle.app-main-38:\\layout\\fragment_vehicles.xml"
-    },
-    {
-        "merged": "main.dataakansalle.app-debug-36:/layout_fragment_weather.xml.flat",
-        "source": "main.dataakansalle.app-main-38:/layout/fragment_weather.xml"
     },
     {
         "merged": "C:\\Users\\Pinja\\.gradle\\daemon\\9.3.1\\main.dataakansalle.app-debug-36:\\layout_activity_municipality_info.xml.flat",
@@ -72,6 +68,10 @@
         "source": "C:\\Users\\Pinja\\.gradle\\daemon\\9.3.1\\main.dataakansalle.app-main-38:\\mipmap-xhdpi\\ic_launcher_round.webp"
     },
     {
+        "merged": "main.dataakansalle.app-debug-36:/layout_activity_main.xml.flat",
+        "source": "main.dataakansalle.app-main-38:/layout/activity_main.xml"
+    },
+    {
         "merged": "C:\\Users\\Pinja\\.gradle\\daemon\\9.3.1\\main.dataakansalle.app-debug-36:\\layout_item_view_main.xml.flat",
         "source": "C:\\Users\\Pinja\\.gradle\\daemon\\9.3.1\\main.dataakansalle.app-main-38:\\layout\\item_view_main.xml"
     },
@@ -82,10 +82,6 @@
     {
         "merged": "C:\\Users\\Pinja\\.gradle\\daemon\\9.3.1\\main.dataakansalle.app-debug-36:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
         "source": "C:\\Users\\Pinja\\.gradle\\daemon\\9.3.1\\main.dataakansalle.app-main-38:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
-    },
-    {
-        "merged": "main.dataakansalle.app-debug-36:/layout_fragment_vehicles.xml.flat",
-        "source": "main.dataakansalle.app-main-38:/layout/fragment_vehicles.xml"
     },
     {
         "merged": "C:\\Users\\Pinja\\.gradle\\daemon\\9.3.1\\main.dataakansalle.app-debug-36:\\mipmap-hdpi_ic_launcher_round.webp.flat",

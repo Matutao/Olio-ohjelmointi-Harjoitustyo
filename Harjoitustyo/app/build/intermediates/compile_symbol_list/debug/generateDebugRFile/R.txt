@@ -3,6 +3,7 @@ int color white 0x0
 int drawable ic_launcher_background 0x0
 int drawable ic_launcher_foreground 0x0
 int id EmploymentRate 0x0
+int id ErrorTextView 0x0
 int id JobSelfSufficiency 0x0
 int id Municipality 0x0
 int id PopulationDevelopment 0x0

@@ -3657,6 +3657,7 @@ int id BOTTOM_END 0x7f080001
 int id BOTTOM_START 0x7f080002
 int id CTRL 0x7f080003
 int id EmploymentRate 0x7f080004
+int id ErrorTextView 0x7f080223
 int id FUNCTION 0x7f080005
 int id JobSelfSufficiency 0x7f080006
 int id META 0x7f080008

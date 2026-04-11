@@ -1,6 +1,9 @@
 package main.dataakansalle;
 
 import java.io.IOException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -14,28 +17,28 @@ public class DataRetriever {
 
     private final OkHttpClient client = new OkHttpClient();
     public static final MediaType JSON = MediaType.get("application/json; charset=utf-8");
+    private static final String API_KEY = "ea1d02a6f21a7f3ccd07ba100953d4ee";
 
     public JSONObject fetchWeatherData(String MunicipalityName){
-        String RequestStringBody = "https://api.openweathermap.org/data/2.5/weather?q=%s&appid=";
-        String RequestString = String.format(RequestStringBody, MunicipalityName);
+        try {
+            String encodedName = URLEncoder.encode(MunicipalityName, StandardCharsets.UTF_8.toString());
+            String url = String.format("https://api.openweathermap.org/data/2.5/weather?q=%s&units=metric&appid=%s", encodedName, API_KEY);
 
-        Request request = new Request.Builder()
-                .url(RequestString)
-                .header("Accept", "application/json")
-                .header("Authorization", "")
-                .get()
-                .build();
+            Request request = new Request.Builder()
+                    .url(url)
+                    .header("Accept", "application/json")
+                    .get()
+                    .build();
 
-        try (Response response = client.newCall(request).execute()) {
-            System.out.println("Status: " + response.code());
-            if (response.body() != null) {
-                return new JSONObject(response.body().string());
+            try (Response response = client.newCall(request).execute()) {
+                if (response.body() != null) {
+                    return new JSONObject(response.body().string());
+                }
             }
-            return null;
         } catch (IOException | JSONException e) {
-            System.err.println(e);
-            return null;
+            e.printStackTrace();
         }
+        return null;
     }
 
     public JSONObject fetchTaficomTilastokeskusData(String JSONBody, String URL){
@@ -44,20 +47,17 @@ public class DataRetriever {
                 .url(URL)
                 .header("Content-Type", "application/json")
                 .header("Accept", "application/json")
-                .header("Authorization", "")
                 .post(body)
                 .build();
 
         try (Response response = client.newCall(request).execute()) {
-            System.out.println("Status: " + response.code());
             if (response.body() != null) {
                 return new JSONObject(response.body().string());
             }
-            return null;
         } catch (IOException | JSONException e) {
-            System.err.println(e);
-            return null;
+            e.printStackTrace();
         }
+        return null;
     }
 
     public JSONObject fetchPopulationData(String MunicipalityID){

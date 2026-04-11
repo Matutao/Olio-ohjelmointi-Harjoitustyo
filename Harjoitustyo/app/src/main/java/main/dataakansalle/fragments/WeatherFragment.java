@@ -1,73 +1,111 @@
 package main.dataakansalle.fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-import main.dataakansalle.MainActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.Locale;
+
+import main.dataakansalle.MunicipalityData;
 import main.dataakansalle.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link WeatherFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class WeatherFragment extends Fragment {
+    private static final String ARG_DATA = "municipality_data";
+    private MunicipalityData municipalityData;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public WeatherFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment WeatherFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static WeatherFragment newInstance(String param1, String param2) {
+    public static WeatherFragment newInstance(MunicipalityData data) {
         WeatherFragment fragment = new WeatherFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putSerializable(ARG_DATA, data);
         fragment.setArguments(args);
         return fragment;
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            municipalityData = (MunicipalityData) getArguments().getSerializable(ARG_DATA);
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_weather, container, false);
     }
 
-    public void switchToMainActivity(View view) {
-        Intent intent = new Intent(getActivity(), MainActivity.class);
-        startActivity(intent);
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        
+        TextView weatherText = view.findViewById(R.id.weatherText);
+        ImageView weatherImage = view.findViewById(R.id.weatherImage);
+
+        if (municipalityData != null && municipalityData.getWeatherDataJson() != null) {
+            try {
+                JSONObject json = new JSONObject(municipalityData.getWeatherDataJson());
+                JSONObject main = json.getJSONObject("main");
+                
+                // Weather data is already in Celsius because we added &units=metric to the API call
+                double tempCelsius = main.getDouble("temp");
+                
+                JSONObject weatherObj = json.getJSONArray("weather").getJSONObject(0);
+                String description = weatherObj.getString("description");
+                String mainCondition = weatherObj.getString("main").toLowerCase();
+                
+                double windSpeed = json.getJSONObject("wind").getDouble("speed");
+
+                String weatherInfo = String.format(Locale.getDefault(),
+                        "%s\n\nLämpötila: %.1f °C\nSää: %s\nTuuli: %.1f m/s",
+                        municipalityData.getMunicipalityName(),
+                        tempCelsius,
+                        description,
+                        windSpeed);
+                
+                weatherText.setText(weatherInfo);
+                
+                // Set weather image based on the main condition and wind speed
+                setWeatherIcon(weatherImage, mainCondition, windSpeed);
+
+            } catch (JSONException e) {
+                weatherText.setText("Säätietoja ei voitu lukea");
+                e.printStackTrace();
+            }
+        } else {
+            weatherText.setText("Säätietoja ei saatavilla.");
+        }
+    }
+
+    private void setWeatherIcon(ImageView imageView, String condition, double windSpeed) {
+        int iconRes;
+        
+        // Use windy icon if it's very windy
+        if (windSpeed > 10.0) {
+            iconRes = R.drawable.windy;
+        } else if (condition.contains("cloud")) {
+            iconRes = R.drawable.cloudy;
+        } else if (condition.contains("rain") || condition.contains("drizzle") || condition.contains("thunderstorm")) {
+            iconRes = R.drawable.rain;
+        } else if (condition.contains("clear")) {
+            iconRes = R.drawable.sunny;
+        } else {
+            iconRes = R.drawable.sunny; // Default
+        }
+        
+        imageView.setImageResource(iconRes);
+        
+        // Remove the color filter so the original colors of your SVGs are shown
+        imageView.clearColorFilter();
     }
 }

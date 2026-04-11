@@ -71,7 +71,6 @@ public class DataParser {
             .getJSONObject("category")
             .getJSONObject("index");
 
-        // Get the minimum year
         int StartYear = Integer.MAX_VALUE;
         Iterator<String> keys = IndexObject.keys();
         while (keys.hasNext()) {
@@ -95,7 +94,6 @@ public class DataParser {
             .getJSONObject("category")
             .getJSONObject("index");
 
-        // Get the minimum year
         int StartYear = Integer.MAX_VALUE;
         Iterator<String> keys = IndexObject.keys();
         while (keys.hasNext()) {
@@ -134,5 +132,4 @@ public class DataParser {
         }
         return ElectricVehicleDataMap;
     }
- 
 }

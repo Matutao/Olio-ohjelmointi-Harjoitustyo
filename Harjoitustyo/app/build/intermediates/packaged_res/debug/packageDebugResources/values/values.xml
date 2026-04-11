@@ -1,12 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="background_green">#F1F8E9</color>
     <color name="black">#FF000000</color>
+    <color name="error_red">#B00020</color>
+    <color name="primary_dark_green">#005005</color>
+    <color name="primary_green">#2E7D32</color>
+    <color name="primary_light_green">#60AD5E</color>
+    <color name="secondary_green">#4CAF50</color>
+    <color name="surface_green">#FFFFFF</color>
+    <color name="text_color_primary">#1B5E20</color>
+    <color name="text_color_secondary">#4E342E</color>
     <color name="white">#FFFFFFFF</color>
     <string name="app_name">DataaKansalle</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <style name="Base.Theme.DataaKansalle" parent="Theme.Material3.DayNight.NoActionBar">
         
+        <item name="colorPrimary">@color/primary_green</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorPrimaryContainer">@color/primary_light_green</item>
+        <item name="colorOnPrimaryContainer">@color/primary_dark_green</item>
+
         
+        <item name="colorSecondary">@color/secondary_green</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+        
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+
+        
+        <item name="android:windowBackground">@color/background_green</item>
+        <item name="colorSurface">@color/surface_green</item>
+        <item name="colorOnSurface">@color/text_color_primary</item>
+
+        <item name="colorError">@color/error_red</item>
     </style>
     <style name="Theme.DataaKansalle" parent="Base.Theme.DataaKansalle"/>
 </resources>

@@ -1,6 +1,5 @@
 package main.dataakansalle;
 
-// Adapter for recycleview
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -12,8 +11,9 @@ import java.util.List;
 
 public class Adapter extends RecyclerView.Adapter<ViewHolder> {
 
-    Context context;
-    List<Item> items;
+    private final Context context;
+    private final List<Item> items;
+
     public Adapter(Context context, List<Item> items) {
         this.context = context;
         this.items = items;
@@ -22,14 +22,15 @@ public class Adapter extends RecyclerView.Adapter<ViewHolder> {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_view,parent,false));
+        return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.item_view, parent, false));
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.PopulationDevelopment.setText(items.get(position).getPopulationDevelopment());
-        holder.JobSelfSufficiency.setText(items.get(position).getJobSelfSufficiency());
-        holder.EmploymentRate.setText(items.get(position).getEmploymentRate());
+        Item item = items.get(position);
+        holder.PopulationDevelopment.setText(item.getPopulationDevelopment());
+        holder.JobSelfSufficiency.setText(item.getJobSelfSufficiency());
+        holder.EmploymentRate.setText(item.getEmploymentRate());
     }
 
     @Override

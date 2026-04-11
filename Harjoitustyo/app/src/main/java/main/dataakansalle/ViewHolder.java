@@ -1,13 +1,11 @@
 package main.dataakansalle;
 
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-// viewholder for recycleview
 public class ViewHolder extends RecyclerView.ViewHolder {
     TextView PopulationDevelopment;
     TextView JobSelfSufficiency;

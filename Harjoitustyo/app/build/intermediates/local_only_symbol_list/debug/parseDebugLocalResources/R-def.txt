@@ -1,14 +1,28 @@
 R_DEF: Internal format may change without notice
 local
+color background_green
 color black
+color error_red
+color primary_dark_green
+color primary_green
+color primary_light_green
+color secondary_green
+color surface_green
+color text_color_primary
+color text_color_secondary
 color white
+drawable cloudy
 drawable ic_launcher_background
 drawable ic_launcher_foreground
+drawable rain
+drawable sunny
+drawable windy
 id EmploymentRate
 id JobSelfSufficiency
 id Municipality
 id PopulationDevelopment
 id PopulationList
+id barChart
 id errorTextView
 id main
 id municipality1
@@ -17,13 +31,16 @@ id municipality3
 id municipality4
 id municipality5
 id myButton
+id returnButton
 id searchMunicipality
 id searchMunicipalityButton
 id tab_layout
 id textViewList
 id titleText
+id vehicleTitle
 id view_pager
 id weatherButton
+id weatherImage
 id weatherText
 layout activity_main
 layout activity_municipality_info

@@ -14,7 +14,9 @@
         android:layout_marginTop="48dp"
         android:ems="10"
         android:hint="Hae kuntaa nimellä..."
-        android:inputType="text"
+        android:inputType="textCapWords|textNoSuggestions"
+        android:importantForAutofill="no"
+        android:saveEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,6 +66,7 @@
         android:backgroundTint="#609FA4"
         android:contentDescription="Kunta1"
         android:onClick="switchFromLastSearchedToInformation"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewList" />
@@ -75,6 +78,7 @@
         android:backgroundTint="#609FA4"
         android:contentDescription="Kunta2"
         android:onClick="switchFromLastSearchedToInformation"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/municipality1" />
@@ -86,6 +90,7 @@
         android:backgroundTint="#609FA4"
         android:contentDescription="Kunta3"
         android:onClick="switchFromLastSearchedToInformation"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/municipality2" />
@@ -97,6 +102,7 @@
         android:backgroundTint="#609FA4"
         android:contentDescription="Kunta4"
         android:onClick="switchFromLastSearchedToInformation"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/municipality3" />
@@ -108,6 +114,7 @@
         android:backgroundTint="#609FA4"
         android:contentDescription="Kunta5"
         android:onClick="switchFromLastSearchedToInformation"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
@@ -117,11 +124,11 @@
 
     <TextView
         android:id="@+id/errorTextView"
-        android:layout_width="206dp"
-        android:layout_height="28dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FF0000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchMunicipality" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-

@@ -38,6 +38,9 @@ dependencies {
     implementation(libs.constraintlayout)
     implementation(libs.okhttp)
     implementation("androidx.recyclerview:recyclerview:1.4.0")
+    
+    // MPAndroidChart
+    implementation(libs.mpandroidchart)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)

@@ -10,8 +10,11 @@ import main.dataakansalle.fragments.WeatherFragment;
 import main.dataakansalle.fragments.VehiclesFragment;
 
 public class ViewPagerAdapter extends FragmentStateAdapter {
-    public ViewPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
+    private final MunicipalityData municipalityData;
+
+    public ViewPagerAdapter(@NonNull FragmentActivity fragmentActivity, MunicipalityData data) {
         super(fragmentActivity);
+        this.municipalityData = data;
     }
 
     @NonNull
@@ -19,13 +22,13 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
     public Fragment createFragment(int position) {
         switch (position) {
             case 0:
-                return new PopulationFragment();
+                return PopulationFragment.newInstance(municipalityData);
             case 1:
-                return new WeatherFragment();
+                return WeatherFragment.newInstance(municipalityData);
             case 2:
-                return new VehiclesFragment();
+                return VehiclesFragment.newInstance(municipalityData);
             default:
-                return new PopulationFragment();
+                return PopulationFragment.newInstance(municipalityData);
         }
     }
 
@@ -34,4 +37,3 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
         return 3;
     }
 }
-

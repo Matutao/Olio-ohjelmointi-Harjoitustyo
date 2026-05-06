@@ -17,7 +17,7 @@ public class DataRetriever {
 
     private final OkHttpClient client = new OkHttpClient();
     public static final MediaType JSON = MediaType.get("application/json; charset=utf-8");
-    private static final String API_KEY = "ea1d02a6f21a7f3ccd07ba100953d4ee";
+    private static final String API_KEY = "";
 
     public JSONObject fetchWeatherData(String MunicipalityName){
         try {
